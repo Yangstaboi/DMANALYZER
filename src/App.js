@@ -79,30 +79,24 @@ function App() {
     processFiles();
   };
 
-  const handleSearch = () => {
-    console.log("Starting search for:", searchTerm);
-  
+  const handleSearch = () => {  
     if (!files.length) {
-      console.log("No files uploaded.");
       setErrorMessage('Please upload and analyze files before searching.');
       setSearchResult('');
       return;
     }
   
-    console.log("Files uploaded, searching through all words.");
-  
     const frequency = allWordCounts[searchTerm.toLowerCase()];
   
     if (frequency) {
-      console.log(`Found "${searchTerm}" with frequency: ${frequency}`);
       setSearchResult(`The word "${searchTerm}" appears ${frequency} time(s).`);
     } else {
-      console.log(`"${searchTerm}" not found.`);
       setSearchResult(`The word "${searchTerm}" does not appear in the analyzed text.`);
     }
   
     setErrorMessage('');
   };
+  
   
   const getBackgroundColor = (index) => {
     if (index < 10) {
